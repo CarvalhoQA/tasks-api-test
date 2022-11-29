@@ -1,5 +1,7 @@
-package br.ce.carvalhoqa.taks.apitest;
+package br.ce.carvalhoqa.taks.apitest.post;
 
+import br.ce.carvalhoqa.taks.apitest.BaseTest;
+import br.ce.carvalhoqa.taks.apitest.utilitarios.Constantes;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -10,12 +12,13 @@ import org.json.simple.JSONObject;
 import java.time.LocalDate;
 
 
-public class PostTodoList extends BaseTest{
+public class PostTodoList extends BaseTest {
 
     JSONObject requisicaoCadastrarTasklist;
     public Response respostaCadastrarTasklist;
     LocalDate data = LocalDate.now();
-    public void HealthCheckCadastrarTasklist() {
+
+    public void healthCheckCadastrarTasklist() {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();
@@ -27,7 +30,7 @@ public class PostTodoList extends BaseTest{
         respostaCadastrarTasklist = httpRequest.request(Method.POST, CADASTRAR_TASK_LIST);
     }
 
-    public void FuncionalCadastrarTasklist() {
+    public void funcionalCadastrarTasklist() {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();
@@ -39,7 +42,7 @@ public class PostTodoList extends BaseTest{
         respostaCadastrarTasklist = httpRequest.request(Method.POST, CADASTRAR_TASK_LIST);
     }
 
-    public void CadastrarTasklistParametroDataInvalido() {
+    public void cadastrarTasklistParametroDataInvalido() {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();

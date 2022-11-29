@@ -1,4 +1,4 @@
-package br.ce.carvalhoqa.taks.apitest;
+package br.ce.carvalhoqa.taks.apitest.utilitarios;
 
 public class Constantes {
 
