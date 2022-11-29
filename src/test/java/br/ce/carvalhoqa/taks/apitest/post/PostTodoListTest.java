@@ -1,7 +1,7 @@
 package br.ce.carvalhoqa.taks.apitest.post;
 
 import br.ce.carvalhoqa.taks.apitest.BaseTest;
-import br.ce.carvalhoqa.taks.apitest.post.PostTodoList;
+import br.ce.carvalhoqa.taks.apitest.utilitarios.Constantes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class PostTodoListTest extends BaseTest {
 
         Assert.assertEquals(HttpStatus.SC_CREATED, postTodoList.respostaCadastrarTasklist.getStatusCode());
         Assert.assertNotNull(postTodoList.respostaCadastrarTasklist.jsonPath().get("id"));
-        Assert.assertEquals("Tarefa teste funcional", postTodoList.respostaCadastrarTasklist.jsonPath().get("task"));
+        Assert.assertEquals(Constantes.DESCRICAO_TASK, postTodoList.respostaCadastrarTasklist.jsonPath().get("task"));
         Assert.assertNotNull(postTodoList.respostaCadastrarTasklist.jsonPath().get("dueDate"));
     }
 
@@ -37,6 +37,6 @@ public class PostTodoListTest extends BaseTest {
         postTodoList.cadastrarTasklistParametroDataInvalido();
 
         Assert.assertEquals(HttpStatus.SC_BAD_REQUEST, postTodoList.respostaCadastrarTasklist.getStatusCode());
-        Assert.assertEquals("Due date must not be in past", postTodoList.respostaCadastrarTasklist.jsonPath().get("message"));
+        Assert.assertEquals(Constantes.MSG_DATA_INVALIDA, postTodoList.respostaCadastrarTasklist.jsonPath().get("message"));
     }
 }

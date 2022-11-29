@@ -22,7 +22,7 @@ public class PostTodoList extends BaseTest {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();
-        requisicaoCadastrarTasklist.put(Constantes.DESCRICAO_TASK, GeradorDeDados().commerce().material());
+        requisicaoCadastrarTasklist.put(Constantes.TASK, GeradorDeDados().commerce().material());
         requisicaoCadastrarTasklist.put(Constantes.DATA, data.plusDays(7).toString());
 
         httpRequest.body(requisicaoCadastrarTasklist.toJSONString());
@@ -34,7 +34,7 @@ public class PostTodoList extends BaseTest {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();
-        requisicaoCadastrarTasklist.put(Constantes.DESCRICAO_TASK, "Tarefa teste funcional");
+        requisicaoCadastrarTasklist.put(Constantes.TASK, Constantes.DESCRICAO_TASK);
         requisicaoCadastrarTasklist.put(Constantes.DATA, data.plusDays(7).toString());
 
         httpRequest.body(requisicaoCadastrarTasklist.toJSONString());
@@ -46,7 +46,7 @@ public class PostTodoList extends BaseTest {
         RequestSpecification httpRequest = RestAssured.given();
 
         requisicaoCadastrarTasklist = new JSONObject();
-        requisicaoCadastrarTasklist.put(Constantes.DESCRICAO_TASK, "Tarefa teste funcional");
+        requisicaoCadastrarTasklist.put(Constantes.TASK, Constantes.DESCRICAO_TASK);
         requisicaoCadastrarTasklist.put(Constantes.DATA, data.minusDays(7).toString());
 
         httpRequest.body(requisicaoCadastrarTasklist.toJSONString());
